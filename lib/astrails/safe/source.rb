@@ -16,7 +16,9 @@ module Astrails
       end
 
       def filename
-        @filename ||= expand(":kind-:id.:timestamp")
+        #@filename ||= expand(":kind-:id.:timestamp")
+        #@filename ||= expand(":id.:timestamp")
+        @filename ||= expand(":timestamp-:id")
       end
 
       def backup
