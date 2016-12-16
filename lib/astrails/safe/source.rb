@@ -8,7 +8,7 @@ module Astrails
       end
 
       def timestamp
-        Time.now.strftime("%y%m%d-%H%M")
+        Time.now.strftime("%Y%m%d-%H%M")
       end
 
       def kind
