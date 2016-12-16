@@ -23,6 +23,7 @@ module Astrails
           end
           Net::FTP.open(host) do |ftp|
             ftp.connect(host, port)
+            ftp.passive = passive
             ftp.login(user, password)
             puts "Sending #{@backup.path} to #{full_path}" if verbose?
             begin
@@ -46,6 +47,7 @@ module Astrails
         end
         Net::FTP.open(host) do |ftp|
           ftp.connect(host, port)
+          ftp.passive = passive
           ftp.login(user, password)
           files = ftp.nlst(path)
           pattern = File.basename("#{base}")
@@ -78,6 +80,10 @@ module Astrails
 
       def port
         config[:ftp, :port]
+      end
+
+      def passive
+        config[:ftp, :passive]
       end
 
     end
